@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Gimnasio Vivagym</title>
+
+    <!-- Included CSS Files (Compressed) -->
+    <link rel="stylesheet" href="lib/foundation/stylesheets/foundation.min.css">
+    <link rel="stylesheet" href="lib/foundation/stylesheets/app.css">
+
+    <script src="lib/foundation/javascripts/modernizr.foundation.js"></script>
+  </head>
+  <body>
+    <div class="row">
+      <div class="twelve columns">
+        <form id="peopleIndex">
+          <div class="row">
+            <div class="twelve columns">
+              <h1 class="subheader">People</h1>
+              <table class="twelve">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody data-bind="foreach: people()">
+                  <tr>
+                    <td data-bind="text: Name"></td>
+                    <td data-bind="text: Age"></td>
+                    <td>
+                      <button class="small button radius"  data-bind='click: $root.removePerson'>
+                        Delete
+                      </button>
+                      <button class="small button radius" data-bind='click: $root.setEditingPerson' >
+                        Edit
+                      </button>                      
+                      <!--<a href="#" data-bind='click: $root.editPerson'>Edit</a>-->
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>    
+    <div id="myeditform">
+      <div class="twelve columns">
+          <form data-binding="with: getEditingPerson()">
+          <fieldset>
+            <legend>Edit person</legend>
+
+            <label>Name</label>
+            <input type="text" placeholder="Enter a Name" data-binding="value: Name"/>
+            <label>Age</label>
+            <input type="text" placeholder="Enter an Age" data-binding="value: Age"/>
+            <hr/>
+            <!--<button class="button radius small" data-bind='click: $root.editPerson'>Submit</button>-->
+          </fieldset>
+        </form>
+      </div>    
+    </div>
+    <!-- Initialize JS Plugins -->
+    <script src="lib/foundation/javascripts/foundation.min.js"></script>
+    <script src="lib/foundation/javascripts/app.js"></script>
+    <script src="lib/jquery/jquery.js"></script>
+    <script src="lib/knockout/knockout-2.2.1.js"></script>
+    <script src="js/client.js"></script>
+  </body>
+</html>
